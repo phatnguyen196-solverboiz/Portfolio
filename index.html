@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nguyen Trong Phat - Portfolio</title>
+  <meta name="description" content="Personal portfolio of Nguyen Trong Phat, Physics Informatics student.">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="site-header container">
+    <a class="logo" href="#">Trong Phat</a>
+    <nav class="site-nav">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" class="button">Toggle Theme</button>
+  </header>
+
+  <main class="container">
+    <section id="about" class="hero">
+      <div>
+        <h1>Hi, I'm Nguyen Trong Phat</h1>
+        <p>4th-year Physics & Informatics student. Deeply passionate and self-taught in Electronics, Internet of Things (IoT), and Information Technology. I love building bridges between hardware and software.</p>
+        <a class="button" href="#contact">Get in Touch</a>
+      </div>
+      <img src="me.jpg" alt="Portrait of Nguyen Trong Phat">
+    </section>
+
+    <section id="skills">
+      <h2>Skills & Expertise</h2>
+      <ul class="tags">
+        <li>HTML/CSS/JS</li>
+        <li>Python</li>
+        <li>C++</li>
+        <li>Measurement Data Analysis</li>
+        <li>Full-Stack Development</li>
+        <li>Simulation</li>
+        <li>Signal Processing</li>
+        <li>Machine Learning</li>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <h2>Featured Projects</h2>
+      <div id="filters"></div>
+      <ul id="project-list" class="projects"></ul>
+      <p id="empty-state" style="display: none;">No matching projects found.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <form id="contact-form" novalidate>
+        <div class="field">
+          <label for="name">Full Name</label>
+          <input id="name" name="name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email Address</label>
+          <input id="email" type="email" name="email" required>
+        </div>
+        <div class="field">
+          <label for="msg">Message</label>
+          <textarea id="msg" name="msg"></textarea>
+        </div>
+        <button class="button">Send Message</button>
+      </form>
+      <p id="contact-success" style="display: none; color: #10b981; margin-top: 10px; font-weight: bold;">Message sent successfully. Thank you!</p>
+      <p id="contact-error" style="display: none; color: #ef4444; margin-top: 10px; font-weight: bold;">Please enter a valid email address.</p>
+    </section>
+  </main>
+
+  <footer class="container">
+    <p>© 2026 Nguyen Trong Phat</p>
+    <p>
+      <a href="https://github.com/yourusername">GitHub Profile</a> | 
+      <a href="https://linkedin.com/in/yourusername">LinkedIn Profile</a>
+    </p>
+  </footer>
+
+  <template id="project-card">
+    <li class="card">
+      <h3></h3>
+      <p class="desc"></p>
+      <p class="card-tags" style="font-size: 0.85rem; color: var(--color-accent); font-weight: bold;"></p>
+    </li>
+  </template>
+</body>
+</html>
