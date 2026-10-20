@@ -1,3 +1,21 @@
+@import "tailwindcss";
+
+/* dark: bật khi <html class="dark"> */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-brand-50: oklch(0.97 0.02 45);
+  --color-brand-500: oklch(0.65 0.19 45);
+  --color-brand-700: oklch(0.50 0.16 45);
+}
+
+.skeleton {
+  height: 3rem;
+  margin: .5rem 0;
+  background: #e2e8f0;
+  border-radius: 0.5rem;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }

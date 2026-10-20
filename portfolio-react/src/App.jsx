@@ -5,6 +5,7 @@ import TagFilter from './components/TagFilter.jsx';
 import ProjectList from './components/ProjectList.jsx';
 import ContactForm from './components/ContactForm.jsx';
 import Footer from './components/Footer.jsx';
+import GitHubRepos from './components/GitHubRepos.jsx';
 import { projects } from './data/projects.js';
 import './index.css';
 
@@ -77,6 +78,11 @@ export default function App() {
           </div>
 
           <ProjectList projects={shown} />
+        </section>
+
+        <section id="github-repos" className="my-8">
+          <h2>Repo GitHub</h2>
+          <GitHubRepos username="phatnguyen196-solverboiz" />
         </section>
 
         <section id="contact">
