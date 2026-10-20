@@ -1,4 +1,5 @@
 import { projects } from './data.js';
+import { loadRepos } from './repos.js';
 
 // --- Render Projects ---
 const ul = document.querySelector('#project-list');
@@ -95,3 +96,39 @@ form.addEventListener('submit', (e) => {
     form.reset();
   }
 });
+
+// --- GitHub Repos Widget (Tuần 4 · Chặng 2) ---
+const state = document.querySelector('#repos-state');
+const list = document.querySelector('#repo-list');
+
+function repoCard(r) {
+  const li = document.createElement('li');
+  li.className = 'card';
+  const a = document.createElement('a');
+  a.href = r.url;
+  a.textContent = r.name;
+  const p = document.createElement('p');
+  p.textContent = `★ ${r.stars} · ${r.desc}`;
+  li.append(a, p);
+  return li;
+}
+
+async function showRepos(user) {
+  state.textContent = 'Loading…';
+  list.textContent = '';
+  try {
+    const repos = await loadRepos(user);
+    state.textContent = repos.length ? ''
+      : 'No public repositories found.';
+    repos.forEach((r) => list.append(repoCard(r)));
+  } catch (err) {
+    state.textContent = 'Failed to load: ' + err.message + ' ';
+    const again = document.createElement('button');
+    again.className = 'button';
+    again.textContent = 'Retry';
+    again.onclick = () => showRepos(user);
+    state.append(again);
+  }
+}
+
+showRepos('phatnguyen196-solverboiz');
