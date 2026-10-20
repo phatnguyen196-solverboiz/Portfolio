@@ -28,44 +28,65 @@ export default function ContactForm() {
   }
 
   return (
-    <form className="contact" onSubmit={submit} noValidate>
-      <div className="field">
-        <label htmlFor="name">Họ tên</label>
+    <form className="max-w-xl mx-auto space-y-4" onSubmit={submit} noValidate>
+      <div className="flex flex-col gap-1.5">
+        <label htmlFor="name" className="text-sm font-semibold text-slate-700 dark:text-slate-300">
+          Họ tên
+        </label>
         <input
           id="name"
           name="name"
           value={form.name}
           onChange={update}
+          className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-colors"
+          placeholder="Nhập họ và tên..."
         />
-        {errors.name && <p className="error">{errors.name}</p>}
+        {errors.name && <p className="text-sm text-red-500 font-medium">{errors.name}</p>}
       </div>
 
-      <div className="field">
-        <label htmlFor="email">Email</label>
+      <div className="flex flex-col gap-1.5">
+        <label htmlFor="email" className="text-sm font-semibold text-slate-700 dark:text-slate-300">
+          Email
+        </label>
         <input
           id="email"
           name="email"
           type="email"
           value={form.email}
           onChange={update}
+          className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-colors"
+          placeholder="name@example.com"
         />
-        {errors.email && <p className="error">{errors.email}</p>}
+        {errors.email && <p className="text-sm text-red-500 font-medium">{errors.email}</p>}
       </div>
 
-      <div className="field">
-        <label htmlFor="message">Tin nhắn</label>
+      <div className="flex flex-col gap-1.5">
+        <label htmlFor="message" className="text-sm font-semibold text-slate-700 dark:text-slate-300">
+          Tin nhắn
+        </label>
         <textarea
           id="message"
           name="message"
           rows="4"
           value={form.message}
           onChange={update}
+          className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-600 transition-colors"
+          placeholder="Nhập nội dung tin nhắn..."
         />
-        {errors.message && <p className="error">{errors.message}</p>}
+        {errors.message && <p className="text-sm text-red-500 font-medium">{errors.message}</p>}
       </div>
 
-      <button className="button" type="submit">Gửi</button>
-      {sent && <p className="ok">Đã gửi. Cảm ơn bạn!</p>}
+      <button
+        className="px-6 py-2.5 rounded-lg bg-teal-700 text-white font-medium hover:bg-teal-800 dark:bg-teal-600 dark:hover:bg-teal-700 transition-colors cursor-pointer shadow-sm"
+        type="submit"
+      >
+        Gửi tin nhắn
+      </button>
+      {sent && (
+        <p className="p-3 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 font-medium text-sm border border-emerald-200 dark:border-emerald-800">
+          Đã gửi. Cảm ơn bạn!
+        </p>
+      )}
     </form>
   );
 }
